@@ -1,5 +1,5 @@
 <template>
-  <section class="section">
+  <div class="kanvan">
     <nav class="navbar is-primary">
       <div class="container">
         <div class="navbar-brand">
@@ -26,7 +26,10 @@
         </div>
       </div>
     </nav>
-  </section>
+    <section class="section">
+      
+    </section>
+  </div>
 </template>
 
 <script>

@@ -12,7 +12,7 @@
             </p>
             <p>
               <small>
-                <a href="https://github.com/yusufsiregar44/kanvan" style="color:#3273dc">Kanvan</a> and the <a href="https://bulma.io/" style="color:#3273dc">Bulma</a> source code is licensed under <a href="http://opensource.org/licenses/mit-license.php" style="color:#3273dc">MIT</a>
+                <a href="https://github.com/yusufsiregar44/kanvan" style="color:#3273dc">Kanvan</a> is licensed under <a href="http://opensource.org/licenses/mit-license.php" style="color:#3273dc">MIT</a>
               </small>
             </p>
           </div>
