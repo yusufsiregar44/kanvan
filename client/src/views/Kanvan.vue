@@ -4,7 +4,7 @@
       <div class="container">
         <div class="navbar-brand">
           <a class="navbar-item">
-            <h1 class="title">Kan⊻an</h1>
+            <h1 class="title" style="color: white">Kan⊻an</h1>
           </a>
           <span class="navbar-burger burger" data-target="navbarMenuHeroB">
               <span></span>
@@ -27,22 +27,32 @@
       </div>
     </nav>
     <section class="section">
-      
+      <div class="container has-text-centered">
+        <p class="title">{{ count }}</p>
+        <a class="button is-primary" @click="add">+</a>
+      </div>
     </section>
   </div>
 </template>
 
 <script>
 
+import { mapState } from 'vuex'
+import { mapActions } from 'vuex'
+
 export default {
   name: 'kanvan',
   components: {
-
   },
-  data() {
-    return {
-
-    };
+  computed: {
+    ...mapState([
+      'count'
+    ])
+  },
+  methods: {
+    ...mapActions({
+      add: 'increment'
+    })
   }
 }
 </script>

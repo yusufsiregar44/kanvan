@@ -51,8 +51,6 @@ $link: $primary;
 $link-invert: $primary-invert;
 $link-focus-border: $primary;
 
-$title-color: $white;
-
 @import "~bulma";
 @import "~buefy/src/scss/buefy";
 </style>
