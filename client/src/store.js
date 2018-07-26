@@ -16,6 +16,6 @@ export default new Vuex.Store({
   actions: {
     increment ({ commit }) {
       commit('increment')
-    }
+    },
   },
 });
