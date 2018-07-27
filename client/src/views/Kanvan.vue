@@ -31,6 +31,15 @@
         <p class="title">{{ count }}</p>
         <a class="button is-primary" @click="add">+</a>
       </div> -->
+    <div class="container has-text-centered" style="margin-bottom: 50px">
+      <button class="button is-primary" @click="isComponentModalActive = true">
+        Add Something New
+      </button>
+
+      <b-modal :active.sync="isComponentModalActive" has-modal-card>
+        <AddModal v-bind="formProps" @add="isComponentModalActive = false"></AddModal>
+      </b-modal>
+    </div>
     <div class="columns">
       <BacklogColumn></BacklogColumn>
       <PriorityColumn></PriorityColumn>
@@ -48,18 +57,28 @@ import {
 import {
   mapActions
 } from 'vuex'
-import BacklogColumn from '@/components/BacklogColumn.vue'
-import PriorityColumn from '@/components/PriorityColumn.vue'
-import InProgressColumn from '@/components/InProgressColumn.vue'
-import DoneColumn from '@/components/DoneColumn.vue'
+import BacklogColumn from '../components/BacklogColumn.vue'
+import PriorityColumn from '../components/PriorityColumn.vue'
+import InProgressColumn from '../components/InProgressColumn.vue'
+import DoneColumn from '../components/DoneColumn.vue'
+import AddModal from '../components/AddModal.vue'
 
 export default {
   name: 'kanvan',
+  data() {
+    return {
+      isComponentModalActive: false,
+      formProps: {
+
+      }
+    };
+  },
   components: {
     BacklogColumn,
     PriorityColumn,
     InProgressColumn,
     DoneColumn,
+    AddModal,
   },
   computed: {
     ...mapState([
