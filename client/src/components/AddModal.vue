@@ -10,14 +10,16 @@
             <b-input
                 type="text"
                 placeholder="Content"
-                required>
+                required
+                v-model="newKanvanContent"
+                >
             </b-input>
         </b-field>
       </template>
     </section>
     <footer class="modal-card-foot">
       <div class="container">
-        <button class="button is-primary">Add</button>
+        <button class="button is-primary" @click="add">Add</button>
       </div>
     </footer>
   </div>
@@ -25,19 +27,28 @@
 </template>
 
 <script>
-import ContentField from '../components/ContentField.vue'
+
 export default {
-  components: {
-    ContentField,
+  data() {
+    return {
+      newKanvanContent: '',
+    };
   },
   watch: {
-    content() {
-      console.log(this.content);
-    },
+    // content() {
+    //   console.log(this.content);
+    // },
   },
   methods: {
-    validate() {
-
+    add() {
+      let str = this.newKanvanContent;
+      let booleanValid = /[A-z]/g.test(str);
+      if (!booleanValid) {
+        window.alert("Please enter a valid content!")
+      } else {
+          window.alert('Success!')
+          this.$emit('add')
+      }
     }
   }
 }

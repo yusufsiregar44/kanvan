@@ -27,17 +27,13 @@
     </div>
   </nav>
   <section class="section">
-    <!-- <div class="container has-text-centered">
-        <p class="title">{{ count }}</p>
-        <a class="button is-primary" @click="add">+</a>
-      </div> -->
     <div class="container has-text-centered" style="margin-bottom: 50px">
       <button class="button is-primary" @click="isComponentModalActive = true">
         Add Something New
       </button>
 
       <b-modal :active.sync="isComponentModalActive" has-modal-card>
-        <AddModal v-bind="formProps" @add="isComponentModalActive = false"></AddModal>
+        <AddModal @add="isComponentModalActive = false"></AddModal>
       </b-modal>
     </div>
     <div class="columns">
