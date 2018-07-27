@@ -5,7 +5,15 @@
       <p class="modal-card-title">Something New</p>
     </header>
     <section class="modal-card-body">
-      <ContentField v-model="content"></ContentField>
+      <template lang="html">
+        <b-field label="Content">
+            <b-input
+                type="text"
+                placeholder="Content"
+                required>
+            </b-input>
+        </b-field>
+      </template>
     </section>
     <footer class="modal-card-foot">
       <div class="container">
