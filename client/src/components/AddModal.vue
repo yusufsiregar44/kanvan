@@ -52,7 +52,7 @@ export default {
       } else {
           this.addNewTile(this.newTileContent)
           .then(() => {
-            window.alert('Success!')
+            window.alert('Successfully added tile!')
             this.$emit('addComplete')
           })
       }
