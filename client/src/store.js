@@ -121,9 +121,7 @@ export default new Vuex.Store({
        })
        // eslint-disable-next-line
        .then((response) => {
-         return new Promise(function(resolve) {
-           resolve()
-         });
+         console.log(response);
        })
        // eslint-disable-next-line
        .catch((err) => {
@@ -136,9 +134,7 @@ export default new Vuex.Store({
        firebase.firestore().collection('kanvan').doc(payload).delete()
        // eslint-disable-next-line
        .then((response) => {
-         return new Promise(function(resolve) {
-           resolve()
-         });
+         console.log(response);
        })
        // eslint-disable-next-line
        .catch((err) => {
@@ -147,16 +143,30 @@ export default new Vuex.Store({
        })
     },
     moveTileRight(context, payload) {
-      console.log(payload);
-       firebase.firestore().collection('kanvan').doc(payload.id).set({
+      console.log('kanan', payload.content);
+      firebase.firestore().collection('kanvan').doc(payload.id).set({
          content: payload.content,
          kanvanConstant: payload.newKanvanConstant,
        })
        // eslint-disable-next-line
        .then((response) => {
-         return new Promise(function(resolve) {
-           resolve()
-         });
+         console.log(response);
+       })
+       // eslint-disable-next-line
+       .catch((err) => {
+         console.log(err);
+         window.alert('Oops, something went wrong :(\nPlease try again)')
+       })
+    },
+    moveTileLeft(context, payload) {
+      console.log('kiri', payload.content);
+      firebase.firestore().collection('kanvan').doc(payload.id).set({
+         content: payload.content,
+         kanvanConstant: payload.newKanvanConstant,
+       })
+       // eslint-disable-next-line
+       .then((response) => {
+         console.log(response);
        })
        // eslint-disable-next-line
        .catch((err) => {

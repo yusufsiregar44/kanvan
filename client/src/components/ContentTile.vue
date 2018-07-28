@@ -1,8 +1,8 @@
 <template lang="html">
   <div class="tile is-child box">
-    <a class="button is-small" style="margin-left: 150px"><i class="fas fa-trash" style="color:red" @click="remove"></i></a>
+    <a class="button is-small" style="margin-left: 150px" @click="remove"><i class="fas fa-trash" style="color:red"></i></a>
     <p class="title">{{ tile.content }}</p>
-    <a class="button is-pulled-left" style="margin-left: 40px"><i class="fas fa-arrow-left"></i></a>
+    <a class="button is-pulled-left" style="margin-left: 40px" @click="moveLeft"><i class="fas fa-arrow-left"></i></a>
     <a class="button" style="margin-right: 40px" @click="moveRight"><i class="fas fa-arrow-right"></i></a>
   </div>
 </template>
@@ -13,9 +13,9 @@ export default {
   name: 'ContentTile',
   data() {
     return {
-      kanvanConstant: this.tile.kanvanConstant,
-      tileId: this.tile.id,
-      content: this.tile.content,
+    //   kanvanConstant: this.tile.kanvanConstant,
+    //   tile.id: this.tile.id,
+    //   content: this.tile.content,
       newKanvanConstant: null,
     };
   },
@@ -23,18 +23,28 @@ export default {
   methods: {
     ...mapActions([
       'removeTile',
-      'moveTileRight'
+      'moveTileRight',
+      'moveTileLeft'
     ]),
     remove() {
-      this.removeTile(this.tileId)
+      console.log('masuk');
+      this.removeTile(this.tile.id)
     },
     moveRight() {
-      if (this.kanvanConstant === 4) {
-        this.newKanvanConstant = this.kanvanConstant;
+      if (this.tile.kanvanConstant === 4) {
+        this.newKanvanConstant = this.tile.kanvanConstant;
       } else {
-        this.newKanvanConstant = this.kanvanConstant + 1;
+        this.newKanvanConstant = this.tile.kanvanConstant + 1;
       }
-      this.moveTileRight({id: this.tileId, content: this.content, newKanvanConstant: this.newKanvanConstant})
+      this.moveTileRight({id: this.tile.id, content: this.tile.content, newKanvanConstant: this.newKanvanConstant})
+    },
+    moveLeft() {
+      if (this.tile.kanvanConstant === 1) {
+        this.newKanvanConstant = this.tile.kanvanConstant;
+      } else {
+        this.newKanvanConstant = this.tile.kanvanConstant - 1;
+      }
+      this.moveTileLeft({id: this.tile.id, content: this.tile.content, newKanvanConstant: this.newKanvanConstant})
     }
   }
 }

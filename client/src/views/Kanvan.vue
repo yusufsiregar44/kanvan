@@ -15,12 +15,14 @@
       <div id="navbarMenuHeroB" class="navbar-menu">
         <div class="navbar-end">
           <a class="navbar-item" slot="trigger">
+            <router-link :to="{ name: 'home', params: {} }">
               <a class="button is-inverted">
                 <span class="icon">
                   <i class="fas fa-sign-out-alt"></i>
                 </span>
-                <span>Logout</span>
+                <span style="color:black">Exit</span>
               </a>
+            </router-link>
           </a>
         </div>
       </div>

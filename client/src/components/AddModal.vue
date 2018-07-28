@@ -48,7 +48,7 @@ export default {
       let str = this.newTileContent;
       let booleanValid = /[A-z]/g.test(str);
       if (!booleanValid) {
-        window.alert("Please enter a valid content!");
+        window.alert("Content must contain text!");
       } else {
           this.addNewTile(this.newTileContent)
           .then(() => {
