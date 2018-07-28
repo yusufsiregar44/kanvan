@@ -11,7 +11,7 @@
                 type="text"
                 placeholder="Content"
                 required
-                v-model="newKanvanContent"
+                v-model="newTileContent"
                 >
             </b-input>
         </b-field>
@@ -19,7 +19,7 @@
     </section>
     <footer class="modal-card-foot">
       <div class="container">
-        <button class="button is-primary" @click="add">Add</button>
+        <button class="button is-primary" @click="add()">Add</button>
       </div>
     </footer>
   </div>
@@ -27,11 +27,12 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 
 export default {
   data() {
     return {
-      newKanvanContent: '',
+      newTileContent: '',
     };
   },
   watch: {
@@ -40,14 +41,20 @@ export default {
     // },
   },
   methods: {
+    ...mapActions([
+      'addNewTile'
+    ]),
     add() {
-      let str = this.newKanvanContent;
+      let str = this.newTileContent;
       let booleanValid = /[A-z]/g.test(str);
       if (!booleanValid) {
-        window.alert("Please enter a valid content!")
+        window.alert("Please enter a valid content!");
       } else {
-          window.alert('Success!')
-          this.$emit('add')
+          this.addNewTile(this.newTileContent)
+          .then(() => {
+            window.alert('Success!')
+            this.$emit('addComplete')
+          })
       }
     }
   }

@@ -33,7 +33,7 @@
       </button>
 
       <b-modal :active.sync="isComponentModalActive" has-modal-card>
-        <AddModal @add="isComponentModalActive = false"></AddModal>
+        <AddModal @addComplete="isComponentModalActive = false"></AddModal>
       </b-modal>
     </div>
     <div class="columns">
@@ -47,7 +47,6 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
 import BacklogColumn from '../components/BacklogColumn.vue'
 import PriorityColumn from '../components/PriorityColumn.vue'
 import InProgressColumn from '../components/InProgressColumn.vue'
@@ -72,9 +71,7 @@ export default {
     AddModal,
   },
   methods: {
-    ...mapActions({
-      add: 'increment'
-    })
+
   }
 }
 </script>

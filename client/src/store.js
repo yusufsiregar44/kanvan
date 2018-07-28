@@ -112,6 +112,24 @@ export default new Vuex.Store({
           })
           commit('assignDoneTiles', tilesArr);
         })
-    }
+    },
+    addNewTile(context, payload) {
+      console.log(payload);
+       firebase.firestore().collection('kanvan').add({
+         content: payload,
+         kanvanConstant: 1,
+       })
+       // eslint-disable-next-line
+       .then((response) => {
+         return new Promise(function(resolve) {
+           resolve()
+         });
+       })
+       // eslint-disable-next-line
+       .catch((err) => {
+         console.log(err);
+         window.alert('Oops, something went wrong :(\nPlease try again)')
+       })
+    },
   },
 });
