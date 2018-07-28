@@ -47,12 +47,7 @@
 </template>
 
 <script>
-import {
-  mapState
-} from 'vuex'
-import {
-  mapActions
-} from 'vuex'
+import { mapActions } from 'vuex'
 import BacklogColumn from '../components/BacklogColumn.vue'
 import PriorityColumn from '../components/PriorityColumn.vue'
 import InProgressColumn from '../components/InProgressColumn.vue'
@@ -75,11 +70,6 @@ export default {
     InProgressColumn,
     DoneColumn,
     AddModal,
-  },
-  computed: {
-    ...mapState([
-      'count'
-    ])
   },
   methods: {
     ...mapActions({

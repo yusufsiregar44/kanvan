@@ -7,7 +7,7 @@
       <div class="message-body">
         <div class="tile is-ancestor">
           <div class="tile is-vertical is-parent">
-            <ContentTile></ContentTile>
+            <ContentTile  v-for="(backlogTile, index) in backlogTiles"  v-bind:key="index" :tile="backlogTile"></ContentTile>
           </div>
         </div>
       </div>
@@ -16,10 +16,17 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import ContentTile from '@/components/ContentTile.vue'
+
 export default {
   components: {
     ContentTile,
+  },
+  computed: {
+    ...mapState([
+      'backlogTiles',
+    ]),
   }
 }
 </script>
