@@ -3,12 +3,7 @@ import Vuex from 'vuex';
 import * as firebase from 'firebase';
 
 var config = {
-  apiKey: "AIzaSyDgLFAcWouNqK2n2tp-LO6zwyn5oMaJuIA",
-  authDomain: "kanvan-336c8.firebaseapp.com",
-  databaseURL: "https://kanvan-336c8.firebaseio.com",
-  projectId: "kanvan-336c8",
-  storageBucket: "kanvan-336c8.appspot.com",
-  messagingSenderId: "706118434597"
+  //moved to env
 };
 firebase.initializeApp(config);
 const firestore = firebase.firestore();
